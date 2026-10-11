@@ -165,7 +165,7 @@ def build_index():
   <section class="section cast" aria-labelledby="cast-h">
     <div class="wrap">
       <h2 id="cast-h" class="section-title">同じ海の、同じ顔ぶれ</h2>
-      <p class="section-lead">ジャンルはバラバラでも、出てくる魚はだいたい同じ。あっちで敵だったやつが、こっちでは仲間やったりします。</p>
+      <p class="section-lead">ジャンルはバラバラでも、出てくる顔ぶれはだいたい同じ。あっちで敵だったやつが、こっちでは仲間やったりします。</p>
       <ul class="cast-list">
       {cast}
       </ul>

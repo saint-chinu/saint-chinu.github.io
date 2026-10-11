@@ -157,7 +157,7 @@ p { margin: 0; }
 
 /* 顔ぶれ */
 .cast { background: var(--surface); }
-.cast-list { list-style: none; padding: 0; margin: clamp(28px, 5vw, 48px) 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.cast-list { list-style: none; padding: 0; margin: clamp(28px, 5vw, 48px) 0 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px 18px; }
 .cast-item img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; object-position: bottom; background: linear-gradient(180deg, var(--ice), var(--ice-2)); border-radius: 12px; padding: 10px 6px 0; }
 .cast-item h3 { font-size: 19px; margin-top: 12px; }
 .cast-line { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.6; }
@@ -271,6 +271,9 @@ p { margin: 0; }
 .theme-umi .game-title { visibility: hidden; height: 0; }
 
 /* ===== 狭い画面 ===== */
+@media (max-width: 1080px) {
+  .cast-list { grid-template-columns: repeat(4, 1fr); }
+}
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(36px, 10.5vw, 84px); }
@@ -281,7 +284,6 @@ p { margin: 0; }
   .catch, .feature { grid-template-columns: 1fr; }
   .catch.flip .catch-visual, .feature.flip .feature-shot { order: 0; }
   .cast-list { grid-template-columns: repeat(2, 1fr); }
-  .cast-item:last-child { grid-column: span 2; max-width: calc(50% - 10px); }
   .others ul { grid-template-columns: 1fr; }
   .others a { grid-template-columns: 132px 1fr; grid-template-rows: auto 1fr; column-gap: 14px; align-items: start; }
   .others img { grid-row: span 2; }
