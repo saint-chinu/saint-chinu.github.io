@@ -239,7 +239,7 @@ p { margin: 0; }
 .other-genre { font-size: 13px; color: var(--muted); }
 .game .site-footer { background: color-mix(in srgb, var(--bg) 70%, #000); }
 
-/* --- チヌクエスト2：王道ファンタジーの紺と金 --- */
+/* --- チヌクエスト：王道ファンタジーの紺と金 --- */
 .theme-cq2 { --bg: #16245a; --fg: #f4efdf; --muted: #c2c6dc; --surface: #1f3174; --accent: #f2c14e; --play: #f2c14e; --play-fg: #2a1d05; }
 .theme-cq2 .game-hero { min-height: min(92svh, 820px); }
 .theme-cq2 .game-catch { color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.6); }

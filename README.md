@@ -5,7 +5,7 @@
 | ページ | 場所 |
 |---|---|
 | トップ | `index.html` |
-| チヌクエスト2 | `games/chinu-quest2/` |
+| チヌクエスト | `games/chinu-quest/` |
 | ドッペル鬼ごっこ | `games/doppel-tag/` |
 | 資本主義の権化 | `games/capitalism/` |
 | 海の回廊 | `games/umi-no-kairo/` |
