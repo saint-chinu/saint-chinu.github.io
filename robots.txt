@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://saint-chinu.github.io/sitemap.xml
