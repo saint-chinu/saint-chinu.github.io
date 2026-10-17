@@ -171,6 +171,25 @@ p { margin: 0; }
 .maker-links { display: flex; gap: 18px; font-weight: 700; }
 .maker-links a { color: var(--wood-hi); }
 
+/* ── スマホ向けの注意書き（トップ） ───────────── */
+.notice { margin: 0 0 clamp(28px, 5vw, 48px); padding: 18px 20px; border: 2px solid var(--wood); border-radius: 12px; background: color-mix(in srgb, var(--wood-hi) 22%, #fff); color: var(--ink); line-height: 1.7; }
+.notice p { margin: 0; }
+.notice-title { font-weight: 800; font-size: 17px; margin-bottom: 6px !important; }
+.notice-steps { margin: 10px 0 0; padding-left: 1.2em; }
+.notice-steps li { margin: 4px 0; }
+.notice-fine { margin-top: 10px !important; font-size: 13px; color: var(--ink-soft); }
+
+/* ── 免責事項 ───────────────────────────── */
+.disclaimer { background: var(--ice-2); color: var(--ink); }
+.disclaimer-inner { max-width: 820px; }
+.disclaimer-lead { margin-top: 18px; line-height: 1.8; }
+.disclaimer-list { margin: 22px 0 0; padding-left: 1.4em; display: grid; gap: 12px; line-height: 1.8; font-size: 15px; }
+.disclaimer-list b { color: var(--sea); }
+.disclaimer-contact { margin-top: 24px; line-height: 1.8; }
+.disclaimer-contact a { color: var(--stamp); font-weight: 700; }
+.site-footer .fine a { color: var(--wood-hi); }
+
+
 /* フッター */
 .site-footer { background: var(--sea-deep); color: #9fb4be; padding: 40px 0 calc(40px + env(safe-area-inset-bottom)); font-size: 13px; }
 .footer-inner { display: grid; gap: 14px; }
