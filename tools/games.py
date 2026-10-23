@@ -20,7 +20,7 @@ GAMES = [
         "theme": "cq2",
         "name": "チヌクエスト",
         "tag_name": "チヌクエスト",
-        "play_url": "https://saint-chinu.github.io/chinu-quest2/",
+        "play_url": "https://chinu-quest2-pvp.doppel-tag.workers.dev/",
         "status": "ベータ版",
         "genre": "ボード×カードバトル",
         "players": "1〜4人",

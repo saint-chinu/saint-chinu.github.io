@@ -121,68 +121,22 @@ def catch_row(g, i, up):
 
 
 def build_index():
-    up = ""
-    games_ld = [{"@type": "VideoGame", "name": g["name"], "url": g["play_url"], "genre": g["genre"],
-                 "gamePlatform": "Web browser", "offers": {"@type": "Offer", "price": 0, "priceCurrency": "JPY"},
-                 "author": {"@type": "Person", "name": SITE["author"]}} for g in GAMES]
-    ld = {"@context": "https://schema.org", "@type": "ItemList",
-          "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": x} for i, x in enumerate(games_ld)]}
-    cast = "\n".join(f"""<li class="cast-item">
-      <img src="assets/img/{c['image']}" alt="{E(c['name'])}" loading="lazy">
-      <h3>{E(c['name'])}</h3>
-      <p class="cast-line">{E(c['line'])}</p>
-      <ul class="cast-in">{''.join(f'<li>{E(x)}</li>' for x in c['in'])}</ul>
-    </li>""" for c in CAST)
-    rows = "\n".join(catch_row(g, i, up) for i, g in enumerate(GAMES))
-    body = f"""<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-</head>
-<body class="portal">
-<a class="skip" href="#catch">本文へ</a>
-<header class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-text">
-      <p class="brand"><img src="assets/img/chinu-pixel.webp" alt="" width="56" height="56">{E(SITE['name'])}</p>
-      <h1 class="hero-title">今日の水揚げ、<br>4本。</h1>
-      <p class="hero-sub">ぜんぶブラウザで遊べて、ぜんぶタダ。<br>インストールもいらん。</p>
-    </div>
-    <div class="hang">
-      <div class="rope" aria-hidden="true"></div>
-      <ul class="tags" aria-label="ゲーム一覧">
-        {tag_hang(GAMES, up)}
-      </ul>
-    </div>
-  </div>
-</header>
-
-<main id="catch">
-  <section class="section catches" aria-labelledby="catch-h">
-    <div class="wrap">
-      <h2 id="catch-h" class="section-title">本日の品書き</h2>
-      {rows}
-    </div>
-  </section>
-
-  <section class="section cast" aria-labelledby="cast-h">
-    <div class="wrap">
-      <h2 id="cast-h" class="section-title">同じ海の、同じ顔ぶれ</h2>
-      <p class="section-lead">ジャンルはバラバラでも、出てくる顔ぶれはだいたい同じ。あっちで敵だったやつが、こっちでは仲間やったりします。</p>
-      <ul class="cast-list">
-      {cast}
-      </ul>
-    </div>
-  </section>
-
-  <section class="section maker" aria-labelledby="maker-h">
-    <div class="wrap"><div class="maker-inner">
-      <h2 id="maker-h" class="section-title">作ってる人</h2>
-      <p>ちぬが、AIと組んで夜な夜な作ってます。どれも作りかけで、遊んでもらうたびに直してる最中。感想も不具合も、どこからでも気軽に投げてください。</p>
-      <p class="maker-links">{social_links(up)}</p>
-    </div></div>
-  </section>
-</main>
-"""
-    out = head(f"{SITE['name']}｜ちぬの無料ブラウザゲーム", SITE["description"], "/", "portal.jpg", "#0f2c3f", 0) + body + footer(up)
-    write("index.html", out)
+    icons = {
+        "chinu-quest": "assets/launcher/chinu.png",
+        "doppel-tag": "assets/launcher/doppel.png",
+        "capitalism": "assets/img/cast/que.webp",
+        "umi-no-kairo": "assets/launcher/umi.png",
+    }
+    links = []
+    for g in GAMES:
+        name = g.get("short_name", g["name"])
+        links.append(f"""      <a class="game {g['slug']}" href="{E(g['play_url'])}" aria-label="{E(name)}を起動">
+        <span class="icon"><img src="{icons[g['slug']]}" alt="" width="156" height="156" decoding="async"></span>
+        <span class="name">{E(name)}</span>
+      </a>""")
+    with open(os.path.join(ROOT, "tools", "portal.html"), encoding="utf-8") as f:
+        template = f.read()
+    write("index.html", template.replace("<!-- GAME_LINKS -->", "\n".join(links)))
 
 
 def build_game(g):
